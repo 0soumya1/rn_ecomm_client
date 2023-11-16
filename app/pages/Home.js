@@ -45,11 +45,11 @@ const Home = () => {
 
   const handleAddToCart = item => {
     // console.log(item, 'item');
-    if (store.user) {
+    if (store?.user) {
       item.qty = 1;
       item.amount = item.price;
       setCart([item]);
-      if (cart.length == 0) {
+      if (cart?.length == 0) {
         setCart([item]);
       } else {
         let exist = cart.some(a => a._id == item._id);
