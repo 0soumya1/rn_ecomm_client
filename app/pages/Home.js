@@ -1,4 +1,12 @@
-import {View, Text, FlatList, ToastAndroid} from 'react-native';
+import {
+  View,
+  Text,
+  FlatList,
+  ToastAndroid,
+  Image,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 import React, {useState, useEffect, useContext} from 'react';
 import {Searchbar, ActivityIndicator, Button} from 'react-native-paper';
 import axios from 'axios';
@@ -76,33 +84,39 @@ const Home = () => {
 
   return (
     <View>
-      <>
-        {/* {console.log(itemList, 'itemlist')} */}
+      <ScrollView>
+        <>
+          {/* {console.log(itemList, 'itemlist')} */}
 
-        <View style={style.searchBar}>
-          <Searchbar placeholder="Search" onChangeText={e => handleSearch(e)} />
-        </View>
+          <View style={style.searchBar}>
+            <Searchbar
+              placeholder="Search"
+              onChangeText={e => handleSearch(e)}
+            />
+          </View>
 
-        {itemList.length > 0 ? (
-          <FlatList
-            data={itemList}
-            renderItem={({item}) => (
-              <View style={style.card}>
-                <Text style={{width: 70}}>{item?.name}</Text>
-                <Text style={{width: 40}}>₹ {item?.price}</Text>
-                <Button
-                  style={{backgroundColor:"#87CEFA"}}
-                  mode="contained-tonal"
-                  onPress={() => handleAddToCart(item)}>
-                  Add
-                </Button>
-              </View>
-            )}
-          />
-        ) : (
-          <ActivityIndicator animating={true} />
-        )}
-      </>
+          {itemList.length > 0 ? (
+            <FlatList
+              data={itemList}
+              renderItem={({item}) => (
+                <View style={style.card}>
+                  <Image style={style.logo} source={require('../food.jpg')} />
+                  <Text style={{width: 70}}>{item?.name}</Text>
+                  <Text style={{width: 40}}>₹ {item?.price}</Text>
+                  <TouchableOpacity
+                    style={style.addBtn}
+                    // mode="contained-tonal"
+                    onPress={() => handleAddToCart(item)}>
+                    <Text>Add</Text>
+                  </TouchableOpacity>
+                </View>
+              )}
+            />
+          ) : (
+            <ActivityIndicator animating={true} />
+          )}
+        </>
+      </ScrollView>
     </View>
   );
 };

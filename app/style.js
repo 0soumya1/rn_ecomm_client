@@ -18,7 +18,7 @@ export default StyleSheet.create({
     borderRadius: 27,
     elevation: 10,
   },
-  
+
   card: {
     padding: 5,
     margin: 5,
@@ -31,10 +31,15 @@ export default StyleSheet.create({
     borderRadius: 5,
   },
 
+  logo: {
+    height: 75,
+    width: 75,
+  },
+
   inputs: {
     backgroundColor: 'white',
-    margin:10,
-    padding:5,
+    margin: 10,
+    padding: 5,
   },
 
   btn: {
@@ -46,6 +51,19 @@ export default StyleSheet.create({
     paddingVertical: 3,
   },
 
+  addBtn: {
+    backgroundColor: '#87CEFA',
+    width: 50,
+    margin: 5,
+    padding: 5,
+    borderRadius: 5,
+    elevation: 5,
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
   invalid: {
     color: 'red',
     display: 'flex',
@@ -54,33 +72,31 @@ export default StyleSheet.create({
   },
 
   footer: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
     padding: 2,
-    width: "100%",
+    width: '100%',
     height: 50,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     elevation: 7,
     bottom: 0,
-    
   },
 
-   badge: {
+  badge: {
     top: 0,
     right: 6,
     bottom: 8,
-    position: "absolute",
+    position: 'absolute',
   },
 
   row: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     padding: 2,
     margin: 2,
   },
-
 });
