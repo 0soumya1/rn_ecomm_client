@@ -31,7 +31,15 @@ const Footer = () => {
           </Button>
         )}
 
-        <View>
+        {/* <Button
+          onPress={() => {
+            navigation.navigate('login');
+            setStore({...store, path: 'Profile'});
+          }}>
+          <Ionicons name="person-outline" size={18} color="black" />
+        </Button> */}
+
+        <View style={style.row1}>
           <Button
             onPress={() => {
               navigation.navigate('cart');

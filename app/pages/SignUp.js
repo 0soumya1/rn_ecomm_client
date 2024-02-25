@@ -79,7 +79,7 @@ const Profile = () => {
   };
 
   return (
-    <View>
+    <View style={style.container}>
       <TextInput
         style={style.inputs}
         mode="outlined"
@@ -108,7 +108,7 @@ const Profile = () => {
         onChangeText={e => setPassword(e)}
       />
       {error && !password && (
-        <Text style={style.invalid}>Enter Valid Password</Text>
+        <Text style={style.invalid}>      Enter Valid Password</Text>
       )}
 
       {!loading && (

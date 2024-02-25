@@ -78,7 +78,7 @@ const Cart = () => {
     axios
       .post(BASE_URL + 'addOrder', data)
       .then(resp => {
-        // console.log(resp.data, 'addOrder data');
+        console.log('addOrder data---------', resp.data );
         if (resp.data) {
           setLoading(false);
           toast('Order placed successfully');
@@ -96,13 +96,13 @@ const Cart = () => {
   };
 
   return (
-    <View>
+    <View style={style.container}>
       {cart?.length > 0 && (
         <FlatList
           data={cart}
           renderItem={({item, index}) => (
             <View style={style.card}>
-              <Text style={{width: 80}}>{item?.name}</Text>
+              <Text style={{width: 80, height: 60, top: 18}}>{item?.name}</Text>
 
               <Entypo
                 onPress={() => handleQtyDec(index)}
@@ -154,7 +154,7 @@ const Cart = () => {
           {loading && <ActivityIndicator animating={true} />}
         </View>
       ) : (
-        <Text style={{alignSelf: 'center'}}>Cart Empty</Text>
+        <Text style={{alignSelf: 'center', fontSize:16}}>Cart Empty</Text>
       )}
     </View>
   );

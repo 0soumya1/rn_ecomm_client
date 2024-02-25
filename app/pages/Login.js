@@ -78,7 +78,7 @@ const Login = () => {
     }
   };
   return (
-    <View>
+    <View style={style.container}>
       <TextInput
         style={style.inputs}
         mode="outlined"

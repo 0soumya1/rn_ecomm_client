@@ -33,9 +33,9 @@ const Home = () => {
     handleGetItems();
   }, []);
 
-  useEffect(() => {
-    console.log(cart, 'cart');
-  }, [cart]);
+  // useEffect(() => {
+  //   console.log('cart-------------->', cart );
+  // }, [cart]);
 
   const handleGetItems = () => {
     // console.log(url, "url")
@@ -55,17 +55,19 @@ const Home = () => {
     // console.log(item, 'item');
     if (store?.user) {
       item.qty = 1;
+      item.orderQty = 1;
       item.amount = item.price;
       setCart([item]);
       if (cart?.length == 0) {
         setCart([item]);
       } else {
         let exist = cart.some(a => a._id == item._id);
-        // console.log(exist, 'exist');
+        console.log('exist---------', exist );  //.some returns in boolean
         if (!exist) {
           setCart([...cart, item]);
         }
       }
+      console.log('cart-------------->', cart );
     } else {
       navigation.navigate('login');
     }
@@ -83,26 +85,23 @@ const Home = () => {
   };
 
   return (
-    <View>
-      <ScrollView>
+    <View style={style.container}>
+      <>
+        {/* {console.log(itemList, 'itemlist')} */}
         <>
-          {/* {console.log(itemList, 'itemlist')} */}
-
-          <View style={style.searchBar}>
-            <Searchbar
-              placeholder="Search"
-              onChangeText={e => handleSearch(e)}
-            />
-          </View>
-
+          <Searchbar
+            style={style.searchBar}
+            placeholder="Search"
+            onChangeText={e => handleSearch(e)}
+          />
           {itemList.length > 0 ? (
             <FlatList
               data={itemList}
               renderItem={({item}) => (
                 <View style={style.card}>
                   <Image style={style.logo} source={require('../food.jpg')} />
-                  <Text style={{width: 70}}>{item?.name}</Text>
-                  <Text style={{width: 40}}>₹ {item?.price}</Text>
+                  <Text style={{width: 80}}>{item?.name}</Text>
+                  <Text>₹ {item?.price}</Text>
                   <TouchableOpacity
                     style={style.addBtn}
                     // mode="contained-tonal"
@@ -116,7 +115,7 @@ const Home = () => {
             <ActivityIndicator animating={true} />
           )}
         </>
-      </ScrollView>
+      </>
     </View>
   );
 };

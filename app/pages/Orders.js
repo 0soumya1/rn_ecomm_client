@@ -21,7 +21,7 @@ const Orders = () => {
       axios
         .get(BASE_URL + 'userOrders/' + store?.user?._id)
         .then(resp => {
-          // console.log(resp.data, 'userorder resp.data');
+          console.log('userorder resp.data--------', resp.data);
           setOrders(resp?.data);
         })
         .catch(err => {
@@ -30,9 +30,9 @@ const Orders = () => {
     }
   }, []);
   return (
-    <View>
+    <View style={style.container}>
       {/* {console.log(items, 'items')} */}
-     
+
       <FlatList
         data={orders}
         renderItem={({item}) => (
@@ -45,12 +45,13 @@ const Orders = () => {
               <Text>{item?.orderId}</Text>
             </Button>
             <Text>{item?.orderDate.substring(0, 10)}</Text>
-            <Text style={{width: 60}}>₹ {item?.total}</Text>
+            <Text style={{width: 60, textAlign: 'right'}}>₹ {item?.total}</Text>
           </View>
         )}
       />
       <Portal>
         <Dialog
+          style={style.white}
           visible={info}
           onDismiss={() => {
             setInfo(false);
@@ -62,7 +63,9 @@ const Orders = () => {
               data={items}
               renderItem={({item}) => (
                 <View style={style.row}>
-                  <Text>{item?.orderQty} x {item?.name}</Text>
+                  <Text>
+                    {item?.orderQty} x {item?.name}
+                  </Text>
                   <Text>₹ {item?.finalPrice}</Text>
                 </View>
               )}

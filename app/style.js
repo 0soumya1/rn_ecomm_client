@@ -1,6 +1,7 @@
-import {StyleSheet} from 'react-native';
+import {Dimensions, StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
+  white: { backgroundColor: "#ffffff", margin: 5 },
   navbar: {
     display: 'flex',
     flexDirection: 'row',
@@ -10,7 +11,15 @@ export default StyleSheet.create({
     margin: 3,
   },
 
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    // justifyContent: "center",
+  },
+
   searchBar: {
+    width:Dimensions.get("screen").width - 30,
     marginTop: 7,
     marginBottom: 8,
     backgroundColor: '#fff',
@@ -20,6 +29,7 @@ export default StyleSheet.create({
   },
 
   card: {
+    width: Dimensions.get("screen").width - 15,
     padding: 5,
     margin: 5,
     display: 'flex',
@@ -37,7 +47,8 @@ export default StyleSheet.create({
   },
 
   inputs: {
-    backgroundColor: 'white',
+    width: Dimensions.get("screen").width - 40,
+    backgroundColor: "#fff",
     margin: 10,
     padding: 5,
   },
@@ -48,6 +59,7 @@ export default StyleSheet.create({
     alignSelf: 'center',
     borderRadius: 30,
     margin: 5,
+    marginTop:6,
     paddingVertical: 3,
   },
 
@@ -66,9 +78,11 @@ export default StyleSheet.create({
 
   invalid: {
     color: 'red',
-    display: 'flex',
-    // marginVertical: 1,
-    marginHorizontal: 15,
+    // display: 'flex',
+    // marginVertical: 3,
+    // marginHorizontal: 55,
+    marginRight: 170,
+    // marginTop: 5,
   },
 
   footer: {
@@ -82,6 +96,13 @@ export default StyleSheet.create({
     backgroundColor: '#fff',
     elevation: 7,
     bottom: 0,
+  },
+
+  row1: {
+    display: "flex",
+    padding: 2,
+    flexDirection: "row",
+    // justifyContent: "center",
   },
 
   badge: {

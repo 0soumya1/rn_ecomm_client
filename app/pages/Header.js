@@ -45,7 +45,7 @@ const Header = () => {
         </Button>
 
         <Portal>
-          <Dialog visible={visible} onDismiss={hideDialog}>
+          <Dialog style={style.white} visible={visible} onDismiss={hideDialog}>
             <Dialog.Title>Logout ?</Dialog.Title>
             <Dialog.Actions>
               <Button onPress={hideDialog}>No</Button>
